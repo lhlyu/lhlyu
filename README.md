@@ -15,7 +15,4 @@
 去窥探百万年的天地 <br> 
 是否就如同井底之蛙 <br>
 
-
-![u3u's github stats](https://bad-apple-github-readme.vercel.app/api?show_bg=1&username=lhlyu)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lhlyu&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+<img src="https://github-readme-stats.vercel.app/api?username=lhlyu&count_private=true&show_icons=true" height="200px" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lhlyu&layout=compact&hide=html,css&langs_count=10" height="200px"/>
