@@ -28,4 +28,4 @@
 
 今也谈谈，古也谈谈。
 
-<img src="https://github-readme-stats.vercel.app/api?username=lhlyu&count_private=true&show_icons=true" height="200px" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lhlyu&layout=compact&hide=html,css&langs_count=10" height="200px"/>
+<img src="https://github-readme-stats.vercel.app/api?username=lhlyu&count_private=true&show_icons=true" height="200px" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lhlyu&layout=compact&hide=html,css&langs_count=20" height="200px"/>
