@@ -1,31 +1,25 @@
-### Hi there 
 
-依山傍水房数间，
+<div align="center">
 
-行也安然，坐也安然。
+依山傍水房数间，行也安然，坐也安然。
 
-一头耕牛半顷田，
+一头耕牛半顷田，收也凭天，荒也凭天。
 
-收也凭天，荒也凭天。
+雨过天晴驾小船，鱼在一边，酒在一边。
 
-雨过天晴驾小船，
+路逢骚客问诗篇，好也几言，歹也几言。
 
-鱼在一边，酒在一边。
+布衣得暖胜丝绵，新也可穿，旧也可穿。
 
-路逢骚客问诗篇，
+粗茶淡饭饱三餐，早也香甜，晚也香甜。
 
-好也几言，歹也几言。
+夜归挚友话灯前，今也谈谈，古也谈谈。
 
-布衣得暖胜丝绵，
+[![GitHub Streak](https://streak-stats.demolab.com?user=lhlyu&theme=buefy&hide_border=true&locale=zh_Hans&date_format=%5BY.%5Dn.j)](https://git.io/streak-stats)
+  
+[![Lhlyu's github activity graph](https://github-readme-activity-graph.cyclic.app/graph?username=lhlyu&bg_color=ffffff&color=000000&line=7957d5&point=ff3961&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
-新也可穿，旧也可穿。
-
-粗茶淡饭饱三餐，
-
-早也香甜，晚也香甜。
-
-夜归挚友话灯前，
-
-今也谈谈，古也谈谈。
-
-<img src="https://github-readme-stats.vercel.app/api?username=lhlyu&count_private=true&show_icons=true" height="200px" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lhlyu&layout=compact&hide=html,css&langs_count=10" height="200px"/>
+![Lhlyu's GitHub stats](https://github-readme-stats.vercel.app/api?username=lhlyu&show_icons=true&theme=buefy)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lhlyu&layout=compact)](https://github.com/lhlyu/github-readme-stats)
+  
+</div>
