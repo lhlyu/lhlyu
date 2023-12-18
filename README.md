@@ -17,7 +17,7 @@
 
 [![GitHub Streak](https://streak-stats.demolab.com?user=lhlyu&theme=buefy&hide_border=true&locale=zh_Hans&date_format=%5BY.%5Dn.j)](https://git.io/streak-stats)
   
-[![Lhlyu's github activity graph](https://github-readme-activity-graph.cyclic.app/graph?username=lhlyu&bg_color=ffffff&color=000000&line=7957d5&point=ff3961&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![Lhlyu's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=lhlyu&bg_color=ffffff&color=000000&line=7957d5&point=ff3961&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 ![Lhlyu's GitHub stats](https://github-readme-stats.vercel.app/api?username=lhlyu&show_icons=true&theme=buefy)
   
