@@ -1,21 +1,13 @@
 
 <div align="center">
 
-依山傍水房数间，行也安然，坐也安然。
+无论面对何种困难和挑战
 
-一头耕牛半顷田，收也凭天，荒也凭天。
+人类作为命运共同体
 
-雨过天晴驾小船，鱼在一边，酒在一边。
+都应抛弃偏见团结起来
 
-路逢骚客问诗篇，好也几言，歹也几言。
-
-布衣得暖胜丝绵，新也可穿，旧也可穿。
-
-粗茶淡饭饱三餐，早也香甜，晚也香甜。
-
-夜归挚友话灯前，今也谈谈，古也谈谈。
-
-[![GitHub Streak](https://streak-stats.demolab.com?user=lhlyu&theme=buefy&hide_border=true&locale=zh_Hans&date_format=%5BY.%5Dn.j)](https://git.io/streak-stats)
+在时间的长河中砥砺前行
 
 ![Lhlyu's GitHub stats](https://github-readme-stats.vercel.app/api?username=lhlyu&show_icons=true&theme=buefy)
   
