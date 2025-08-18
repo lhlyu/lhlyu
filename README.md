@@ -1,13 +1,7 @@
 
 <div align="center">
 
-无论面对何种困难和挑战
-
-人类作为命运共同体
-
-都应抛弃偏见团结起来
-
-在时间的长河中砥砺前行
+世间行乐亦如此，古来万事东流水。
 
 ![Lhlyu's GitHub stats](https://github-readme-stats.vercel.app/api?username=lhlyu&show_icons=true&theme=buefy)
   
