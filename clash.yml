@@ -53,49 +53,49 @@ proxy-groups:
       - DIRECT
       
   - name: 自动选择
-    type: url-test
+    type: fallback
     use: [airport]
     exclude-type: direct
-    tolerance: 10
+    url: "https://www.gstatic.com/generate_204"
   
   - name: 国内
     type: select
     proxies: [DIRECT, 默认]
 
   - name: 香港
-    type: url-test
+    type: fallback
     use: [airport]
     filter: "(?i)香港|hk|hongkong"
     exclude-type: direct
-    tolerance: 10
+    url: "https://www.gstatic.com/generate_204"
 
   - name: 台湾
-    type: url-test
+    type: fallback
     use: [airport]
     filter: "(?i)台湾|tw|taiwan"
     exclude-type: direct
-    tolerance: 10
+    url: "https://www.gstatic.com/generate_204"
 
   - name: 日本
-    type: url-test
+    type: fallback
     use: [airport]
     filter: "(?i)日本|jp|japan"
     exclude-type: direct
-    tolerance: 10
+    url: "https://www.gstatic.com/generate_204"
 
   - name: 新加坡
-    type: url-test
+    type: fallback
     use: [airport]
     filter: "(?i)新加坡|sg|singapore"
     exclude-type: direct
-    tolerance: 10
+    url: "https://www.gstatic.com/generate_204"
 
   - name: 美国
-    type: url-test
+    type: fallback
     use: [airport]
     filter: "(?i)美国|us|unitedstates"
     exclude-type: direct
-    tolerance: 10
+    url: "https://www.gstatic.com/generate_204"
 
 rules:
   - DOMAIN-SUFFIX,right.codes,DIRECT
