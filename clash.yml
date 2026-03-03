@@ -39,7 +39,7 @@ proxy-providers:
       enable: true
       url: "https://www.gstatic.com/generate_204"
       interval: 300
-      
+
 proxy-groups:
   - name: 默认
     type: select
@@ -51,16 +51,26 @@ proxy-groups:
       - 日本
       - 美国
       - DIRECT
-      
+
   - name: 自动选择
     type: fallback
     use: [airport]
     exclude-type: direct
     url: "https://www.gstatic.com/generate_204"
-  
+
   - name: 国内
     type: select
-    proxies: [DIRECT, 默认]
+    proxies: 
+      - DIRECT
+      - 默认
+
+  - name: 国外
+    type: select
+    proxies:
+      - 韩国
+      - 新加坡
+      - 日本
+      - 美国
 
   - name: 香港
     type: fallback
@@ -73,6 +83,13 @@ proxy-groups:
     type: fallback
     use: [airport]
     filter: "(?i)台湾|tw|taiwan"
+    exclude-type: direct
+    url: "https://www.gstatic.com/generate_204"
+
+  - name: 韩国
+    type: fallback
+    use: [airport]
+    filter: "(?i)韩国|hg|sk|korea"
     exclude-type: direct
     url: "https://www.gstatic.com/generate_204"
 
@@ -98,6 +115,7 @@ proxy-groups:
     url: "https://www.gstatic.com/generate_204"
 
 rules:
+  - DOMAIN-SUFFIX,skills.sh,默认
   - DOMAIN-SUFFIX,right.codes,DIRECT
   - AND,((DOMAIN,github.com),(DST-PORT,22)),DIRECT
 
@@ -106,16 +124,16 @@ rules:
   - RULE-SET,twitter_domain,默认
   - RULE-SET,youtube_domain,自动选择
   - RULE-SET,google_domain,默认
-  - RULE-SET,telegram_domain,新加坡
+  - RULE-SET,telegram_domain,国外
   - RULE-SET,netflix_domain,自动选择
   - RULE-SET,bahamut_domain,自动选择
   - RULE-SET,spotify_domain,自动选择
   - RULE-SET,cn_domain,国内
-  - RULE-SET,geolocation-!cn,新加坡
+  - RULE-SET,geolocation-!cn,国外
 
   - RULE-SET,google_ip,自动选择
   - RULE-SET,netflix_ip,自动选择
-  - RULE-SET,telegram_ip,新加坡
+  - RULE-SET,telegram_ip,国外
   - RULE-SET,twitter_ip,自动选择
   - RULE-SET,cn_ip,国内
   - MATCH,默认
