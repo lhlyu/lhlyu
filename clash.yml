@@ -48,6 +48,10 @@ proxy-groups:
       - 香港
       - 台湾
       - 新加坡
+      - 越南
+      - 马来西亚
+      - 菲律宾
+      - 泰国
       - 日本
       - 美国
       - DIRECT
@@ -60,15 +64,17 @@ proxy-groups:
 
   - name: 国内
     type: select
-    proxies: 
-      - DIRECT
-      - 默认
+    proxies: [DIRECT, 默认]
 
   - name: 国外
     type: select
     proxies:
       - 韩国
       - 新加坡
+      - 越南
+      - 马来西亚
+      - 菲律宾
+      - 泰国
       - 日本
       - 美国
 
@@ -103,7 +109,35 @@ proxy-groups:
   - name: 新加坡
     type: fallback
     use: [airport]
-    filter: "(?i)新加坡|sg|singapore"
+    filter: "(?i)新加坡|sg|sgp|singapore"
+    exclude-type: direct
+    url: "https://www.gstatic.com/generate_204"
+
+  - name: 越南
+    type: fallback
+    use: [airport]
+    filter: "(?i)越南|vn|vietnam"
+    exclude-type: direct
+    url: "https://www.gstatic.com/generate_204"
+
+  - name: 马来西亚
+    type: fallback
+    use: [airport]
+    filter: "(?i)马来西亚|ml|malaysia"
+    exclude-type: direct
+    url: "https://www.gstatic.com/generate_204"
+
+  - name: 菲律宾
+    type: fallback
+    use: [airport]
+    filter: "(?i)菲律宾|ph|philippines"
+    exclude-type: direct
+    url: "https://www.gstatic.com/generate_204"
+
+  - name: 泰国
+    type: fallback
+    use: [airport]
+    filter: "(?i)泰国|th|thailand"
     exclude-type: direct
     url: "https://www.gstatic.com/generate_204"
 
@@ -117,6 +151,8 @@ proxy-groups:
 rules:
   - DOMAIN-SUFFIX,skills.sh,默认
   - DOMAIN-SUFFIX,right.codes,DIRECT
+  - DOMAIN-SUFFIX,su8.codes,DIRECT
+  - DOMAIN-SUFFIX,withgoogle.com,国外
   - AND,((DOMAIN,github.com),(DST-PORT,22)),DIRECT
 
   - RULE-SET,private_ip,DIRECT,no-resolve
