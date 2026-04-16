@@ -1,7 +1,6 @@
 ############################################
 # 基础配置
 ############################################
-
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
@@ -10,25 +9,24 @@ log-level: info
 external-controller: "127.0.0.1:9090"
 
 ############################################
-# DNS 设置（fake-ip）
+# DNS
 ############################################
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-filter:
-    - "*"
-    - "+.lan"
-    - "+.local"
+    - "*.lan"
+    - "*.local"
   default-nameserver:
-    - tls://223.5.5.5
-    - tls://223.6.6.6
+    - 223.5.5.5
+    - 223.6.6.6
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
 
 ############################################
-# 订阅节点（改为你的订阅链接）
+# 订阅
 ############################################
 proxy-providers:
   airport:
@@ -37,142 +35,93 @@ proxy-providers:
     interval: 3600
     health-check:
       enable: true
-      url: "https://www.gstatic.com/generate_204"
-      interval: 300
+      url: "http://www.gstatic.com/generate_204"
+      interval: 180
+      timeout: 3000
+
+############################################
+# 代理组核心（优化版）
+############################################
+proxy-group-anchor:
+  fallback: &fallback { type: fallback, url: "http://www.gstatic.com/generate_204", interval: 180, tolerance: 50 }
 
 proxy-groups:
-  - name: 默认
-    type: select
-    proxies:
-      - 自动选择
-      - 香港
-      - 台湾
-      - 新加坡
-      - 越南
-      - 马来西亚
-      - 菲律宾
-      - 泰国
-      - 日本
-      - 美国
-      - DIRECT
-
-  - name: 自动选择
-    type: fallback
+  - name: 香港
     use: [airport]
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
+    filter: "(?i)香港|hk|hongkong"
+    <<: *fallback
 
-  - name: 国内
-    type: select
-    proxies: [DIRECT, 默认]
+  - name: 台湾
+    use: [airport]
+    filter: "(?i)台湾|tw"
+    <<: *fallback
 
+  - name: 日本
+    use: [airport]
+    filter: "(?i)日本|jp|japan"
+    <<: *fallback
+
+  - name: 新加坡
+    use: [airport]
+    filter: "(?i)新加坡|sg|singapore"
+    <<: *fallback
+    
+  - name: 韩国
+    use: [airport]
+    filter: "(?i)韩国|sk|korea"
+    <<: *fallback
+
+  - name: 美国
+    use: [airport]
+    filter: "(?i)美国|us|unitedstates"
+    <<: *fallback
+    
   - name: 国外
     type: select
     proxies:
       - 韩国
-      - 新加坡
-      - 越南
-      - 马来西亚
-      - 菲律宾
-      - 泰国
       - 日本
+      - 新加坡
       - 美国
 
-  - name: 香港
-    type: fallback
+  - name: 自动
+    type: url-test
     use: [airport]
-    filter: "(?i)香港|hk|hongkong"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
+    url: "http://www.gstatic.com/generate_204"
+    interval: 180
+    tolerance: 50
 
-  - name: 台湾
-    type: fallback
+  - name: 手动
+    type: select
     use: [airport]
-    filter: "(?i)台湾|tw|taiwan"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 韩国
-    type: fallback
-    use: [airport]
-    filter: "(?i)韩国|hg|sk|korea"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 日本
-    type: fallback
-    use: [airport]
-    filter: "(?i)日本|jp|japan"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 新加坡
-    type: fallback
-    use: [airport]
-    filter: "(?i)新加坡|sg|sgp|singapore"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 越南
-    type: fallback
-    use: [airport]
-    filter: "(?i)越南|vn|vietnam"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 马来西亚
-    type: fallback
-    use: [airport]
-    filter: "(?i)马来西亚|ml|malaysia"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 菲律宾
-    type: fallback
-    use: [airport]
-    filter: "(?i)菲律宾|ph|philippines"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 泰国
-    type: fallback
-    use: [airport]
-    filter: "(?i)泰国|th|thailand"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
-
-  - name: 美国
-    type: fallback
-    use: [airport]
-    filter: "(?i)美国|us|unitedstates"
-    exclude-type: direct
-    url: "https://www.gstatic.com/generate_204"
 
 rules:
-  - DOMAIN-SUFFIX,skills.sh,默认
+  - DOMAIN-SUFFIX,skills.sh,自动
   - DOMAIN-SUFFIX,right.codes,DIRECT
   - DOMAIN-SUFFIX,su8.codes,DIRECT
+  - DOMAIN-SUFFIX,linux.do,自动
+  - DOMAIN-SUFFIX,v2ex.com,自动
   - DOMAIN-SUFFIX,withgoogle.com,国外
   - AND,((DOMAIN,github.com),(DST-PORT,22)),DIRECT
 
   - RULE-SET,private_ip,DIRECT,no-resolve
-  - RULE-SET,github_domain,自动选择
-  - RULE-SET,twitter_domain,默认
-  - RULE-SET,youtube_domain,自动选择
-  - RULE-SET,google_domain,默认
+  - RULE-SET,github_domain,自动
+  - RULE-SET,twitter_domain,自动
+  - RULE-SET,youtube_domain,自动
+  - RULE-SET,google_domain,自动
   - RULE-SET,telegram_domain,国外
-  - RULE-SET,netflix_domain,自动选择
-  - RULE-SET,bahamut_domain,自动选择
-  - RULE-SET,spotify_domain,自动选择
-  - RULE-SET,cn_domain,国内
+  - RULE-SET,netflix_domain,自动
+  - RULE-SET,bahamut_domain,自动
+  - RULE-SET,spotify_domain,自动
+  - RULE-SET,cn_domain,DIRECT
   - RULE-SET,geolocation-!cn,国外
 
-  - RULE-SET,google_ip,自动选择
-  - RULE-SET,netflix_ip,自动选择
+  - RULE-SET,google_ip,自动
+  - RULE-SET,netflix_ip,自动
   - RULE-SET,telegram_ip,国外
-  - RULE-SET,twitter_ip,自动选择
-  - RULE-SET,cn_ip,国内
-  - MATCH,默认
+  - RULE-SET,twitter_ip,自动
+  - RULE-SET,cn_ip,DIRECT
+  - MATCH,自动
 
 rule-anchor:
   ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
